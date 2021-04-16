@@ -2,6 +2,7 @@
 	<project name="Hello Ant and JDBC WITH PosrgeSQL" default="info">
 	<property name="customProperty" value="--valueTest--"/>
 	<property file="build.properties"/>
+	<property name="ant.project.name" value="Hello Ant with properties"/>
 	
 	<target name="info">
 		<echo> Hello World - Welcome our project </echo>
@@ -13,5 +14,6 @@
 		<echo> host - ${host}</echo>
 		<echo> user - ${user}</echo>
 		<echo> password - ${password}</echo>
+		<echo> changed property ant.project.name that equals - ${ant.project.name}</echo>
 	</target>
 </project>

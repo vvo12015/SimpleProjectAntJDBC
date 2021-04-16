@@ -4,7 +4,7 @@
 [![ant](https://img.shields.io/badge/%20-ant-violet)](https://ant.apache.org/manual/index.html)
 [![posgreSQL](https://img.shields.io/badge/%20-posgresql-blue)](https://www.postgresql.org/docs/current/tutorial-start.html)
 [![jdbc](https://img.shields.io/badge/%20-jdbc-black)](https://docs.oracle.com/javase/tutorial/jdbc/basics/index.html)
- 
+
 [ant/tutorialspoint](https://www.tutorialspoint.com/ant/index.htm)
 [posgresql/tutorialspoint](https://www.tutorialspoint.com/postgresql/index.htm)
 [jdbc/tutorialspoint](https://www.tutorialspoint.com/jdbc/index.htm)
@@ -35,5 +35,6 @@ This is a small simple project that will help to understand the basic features o
 - Log in or sing up hosting for PostgreSQL or use local DB
 	-Log in [elephantsql.com](https://customer.elephantsql.com/)
 	-Create New Instance
-1. Ознайомлення з основними можливостями ant
-	-[create build.xml for HelloWorld](https://github.com/vvo12015/SimpleProjectAntJDBC/tree/helloAnt)
+## Basic steps
+Оcновні кроки
+- [create build.xml for HelloWorld](https://github.com/vvo12015/SimpleProjectAntJDBC/tree/helloAnt)

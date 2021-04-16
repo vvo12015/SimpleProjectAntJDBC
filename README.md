@@ -8,21 +8,24 @@ Create the initial build.xml file:
 [ant/tutorialspoint](https://www.tutorialspoint.com/ant/index.htm)
 
 1. Introduction to the basic elements of the build.xml file
+
 Ознайомлення з основними  елементами build.xml  файлу
 * project
-	- name
-	- default 
+	- **name**(Required)(обов'язковий)
+	- **default** (optional)
 		specifies which target should be considered as the default
 		визначає, яка ціль буде виконана в любому випадку
-	- basedir(optional)(необов'язковий)
+	- **basedir**(optional)(необов'язковий)
 * target
-	- name
-	- depends
-	- description
-	- if
-	- unless
+	- **name**(required)(обов'язковий)
+	- **depends**(optional) - Comma separated list of all targets that this target depends on. (Optional) (***Список цілей розділений комами, пов'язаних з даною цілю цілей. Тобто без виконання, яких дана ціль не запускається***)
+	- **description**(optional) - (***опис***)
+	- **if**(optional) - condition for fulfilling this goal (***умова виконання даної цілі***)
+	- **unless**(optional) 	- Adds the target to the dependency list of the specified Extension Point. An Extension Point is similar to a target, but it does not have any tasks. (Optional) (***Додає ціль до списку залежностей вказаної точки розширення. Точка розширення схожа на ціль, але вона не має жодних завдань. (Необов’язково)***)
+				
 
 Download given repository and run from root directory
+Завантажте даний репозиторій та виконайте дії з кореневого каталогу
 ```
 C:\rootDir\>ant
 Buildfile: D:\prog\Projects\dashboard\helloWorld\helloAnt\build.xml

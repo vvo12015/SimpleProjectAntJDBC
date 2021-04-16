@@ -6,7 +6,9 @@
 [![jdbc](https://img.shields.io/badge/%20-jdbc-black)](https://docs.oracle.com/javase/tutorial/jdbc/basics/index.html)
 
 [ant/tutorialspoint](https://www.tutorialspoint.com/ant/index.htm)
+
 [posgresql/tutorialspoint](https://www.tutorialspoint.com/postgresql/index.htm)
+
 [jdbc/tutorialspoint](https://www.tutorialspoint.com/jdbc/index.htm)
 
 This is a small simple project that will help to understand the basic features of Ant on the example of working with the JDBC API with the PosgreSQL database. The structure of the ant-project is taken from docs.oracle.com as well as the principles of writing.

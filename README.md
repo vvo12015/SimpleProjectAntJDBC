@@ -16,11 +16,13 @@ Create the initial build.xml file:
 		визначає, яка ціль буде виконана в любому випадку
 	- basedir(optional)(необов'язковий)
 * target
-	- name
-	- depends
-	- description
-	- if
-	- unless
+	- **name**
+	- **depends** Coma separate list of target those depend this target (***список залежностей через кому після яких буде запущено дану ціль***)
+	- **description**
+	- **if** - the condition when run this target (***умова при які виконається дана ціль***)
+	- **unless** - the name of the property that must not be set in order for this target to execute, or something evaluating to false (***ім'я властивості, яке не повинно бути встановлене для виконання цієї цілі, або щось, що оцінює як false***)
+	- **extensionOf**	Adds the current target to the depends list of the named extension-point. since Ant 1.8.0.(***додавання поточної цілі до списку залежностей в extension-point***)
+	- **onMissingExtensionPoint**	What to do if this target tries to extend a missing extension-point. (fail, warn, ignore). since Ant 1.8.2.(***що робити якщо ціль намагається розширити extension-point якого не існує (fail, warn, ignore)***)
 
 Download given repository and run from root directory
 ```

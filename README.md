@@ -25,7 +25,7 @@ This is a small simple project that will help to understand the basic features o
 * Hosting provider 
 [ElephantSQL](https://www.elephantsql.com/)
 ## Prerequisites
-- Install Ant 
+- Install Ant 0
 	- [Installing Ant](https://ant.apache.org/manual/install.html#installing)
 	- [Ant - Environment Setup](https://www.tutorialspoint.com/ant/ant_environment.htm)
 		- Download Ant binary directory
@@ -40,3 +40,4 @@ This is a small simple project that will help to understand the basic features o
 ## Basic steps
 Оcновні кроки
 - [create build.xml for HelloWorld](https://github.com/vvo12015/SimpleProjectAntJDBC/tree/helloAnt)
+- [build with Properties](https://github.com/vvo12015/SimpleProjectAntJDBC/blob/helloAntWithProperties/README.md)

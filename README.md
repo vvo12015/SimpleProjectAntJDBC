@@ -24,17 +24,17 @@ This is a small simple project that will help to understand the basic features o
 [ElephantSQL](https://www.elephantsql.com/)
 ## Prerequisites
 - Install Ant 
-	-[Installing Ant](https://ant.apache.org/manual/install.html#installing)
-	-[Ant - Environment Setup](https://www.tutorialspoint.com/ant/ant_environment.htm)
-		-Download Ant binary directory
-		-Set the ANT_HOME environment variable to the directory where you installed Ant. 
-		-Set the JAVA_HOME environment variable (see the Advanced section below). 
+	- [Installing Ant](https://ant.apache.org/manual/install.html#installing)
+	- [Ant - Environment Setup](https://www.tutorialspoint.com/ant/ant_environment.htm)
+		- Download Ant binary directory
+		- Set the ANT_HOME environment variable to the directory where you installed Ant. 
+		- Set the JAVA_HOME environment variable (see the Advanced section below). 
 - Install PosgreSQL
-	-Download [Windows installers](https://www.postgresql.org/download/windows/)
-	-Run installer PosgresSQL
+	- Download [Windows installers](https://www.postgresql.org/download/windows/)
+	- Run installer PosgresSQL
 - Log in or sing up hosting for PostgreSQL or use local DB
-	-Log in [elephantsql.com](https://customer.elephantsql.com/)
-	-Create New Instance
+	- Log in [elephantsql.com](https://customer.elephantsql.com/)
+	- Create New Instance
 ## Basic steps
 Оcновні кроки
 - [create build.xml for HelloWorld](https://github.com/vvo12015/SimpleProjectAntJDBC/tree/helloAnt)

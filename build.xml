@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+	<project name="Hello Ant and JDBC WITH PosrgeSQL" default="info">
+	<target name="info">
+		<echo>Hello World - Welcome our project</echo>
+	</target>
+</project>

@@ -22,6 +22,8 @@ Create the initial build.xml file:
 	- **description**(optional) - (***опис***)
 	- **if**(optional) - condition for fulfilling this goal (***умова виконання даної цілі***)
 	- **unless**(optional) 	- Adds the target to the dependency list of the specified Extension Point. An Extension Point is similar to a target, but it does not have any tasks. (Optional) (***Додає ціль до списку залежностей вказаної точки розширення. Точка розширення схожа на ціль, але вона не має жодних завдань. (Необов’язково)***)
+	- **extensionOf**	Adds the current target to the depends list of the named extension-point. since Ant 1.8.0.(***додавання поточної цілі до списку залежностей в extension-point***)
+	- **onMissingExtensionPoint**	What to do if this target tries to extend a missing extension-point. (fail, warn, ignore). since Ant 1.8.2.(***що робити якщо ціль намагається розширити extension-point якого не існує (fail, warn, ignore)***)
 				
 
 Download given repository and run from root directory

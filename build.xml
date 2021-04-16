@@ -1,6 +1,17 @@
 <?xml version="1.0"?>
 	<project name="Hello Ant and JDBC WITH PosrgeSQL" default="info">
+	<property name="customProperty" value="--valueTest--"/>
+	<property file="build.properties"/>
+	
 	<target name="info">
-		<echo>Hello World - Welcome our project</echo>
+		<echo> Hello World - Welcome our project </echo>
+		<echo> Demonstration use default property </echo>
+		<echo> For example - prop ant.version: ${ant.version} </echo>
+		<echo> This is our custom property ${customProperty} </echo>
+		<echo> This is example to use of properties load from external file</echo>
+		<echo> Properties for to connect to DB</echo>
+		<echo> host - ${host}</echo>
+		<echo> user - ${user}</echo>
+		<echo> password - ${password}</echo>
 	</target>
 </project>

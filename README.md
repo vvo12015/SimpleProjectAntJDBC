@@ -1,5 +1,6 @@
 ﻿# HelloAnt Branch
 Create the initial build.xml file:
+
 Створення початкового build.xml файлу
  
 [![java](https://img.shields.io/badge/%20-java-red)](https://docs.oracle.com/en/java/javase/15/) 
@@ -7,7 +8,7 @@ Create the initial build.xml file:
 
 [ant/tutorialspoint](https://www.tutorialspoint.com/ant/index.htm)
 
-1. Introduction to the basic elements of the build.xml file
+Introduction to the basic elements of the build.xml file
 
 Ознайомлення з основними  елементами build.xml  файлу
 * project

@@ -31,7 +31,7 @@ This is a small simple project that will help to understand the basic features o
 	- [Ant - Environment Setup](https://www.tutorialspoint.com/ant/ant_environment.htm)
 		- Download Ant binary directory
 		- Set the ANT_HOME environment variable to the directory where you installed Ant. 
-		- Set the JAVA_HOME environment variable (see the Advanced section below). 
+		- Set the JAVA_HOME environment variable (see the Advanced section below).
 - Install PosgreSQL
 	- Download [Windows installers](https://www.postgresql.org/download/windows/)
 	- Run installer PosgresSQL
@@ -43,3 +43,4 @@ This is a small simple project that will help to understand the basic features o
 - [create build.xml for HelloWorld](https://github.com/vvo12015/SimpleProjectAntJDBC/tree/helloAnt)
 - [build with properties](https://github.com/vvo12015/SimpleProjectAntJDBC/blob/helloAntWithProperties/README.md)
 - [build with init project](https://github.com/vvo12015/SimpleProjectAntJDBC/tree/buildingProjects)
+- [added and use Ivy](https://github.com/vvo12015/SimpleProjectAntJDBC/tree/addingAndWorkIvy)

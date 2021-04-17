@@ -14,7 +14,8 @@
 [Core Conditions](https://ant.apache.org/manual/Tasks/conditions.html)
 
 1. The project structure:
-(***структура проекту***)
+
+***структура проекту***
 ---
 	* The database scripts -  **db**
 	* The java source -       **src**
@@ -28,7 +29,8 @@
 	* java класи в папці **bin**.
 	* test класи в папці **test**.
 2. Declare the structure of our project with the following tags
-(***Декларуємо структуру нашого проекту наступними тегами***)
+
+***Декларуємо структуру нашого проекту наступними тегами***
 ```
 	<property name="src.dir" value="src"/>
 	<property name="lib.dir" value="lib"/>

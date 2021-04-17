@@ -41,3 +41,4 @@ This is a small simple project that will help to understand the basic features o
 Оcновні кроки
 - [create build.xml for HelloWorld](https://github.com/vvo12015/SimpleProjectAntJDBC/tree/helloAnt)
 - [build with Properties](https://github.com/vvo12015/SimpleProjectAntJDBC/blob/helloAntWithProperties/README.md)
+- [build with init project](https://github.com/vvo12015/SimpleProjectAntJDBC/tree/buildingProjects)

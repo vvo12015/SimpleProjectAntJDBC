@@ -1,10 +1,11 @@
 <?xml version="1.0"?>
-	<project name="Hello Ant and JDBC WITH PosrgeSQL" default="build">
-	<property name="src.dir" value="src/java"/>
-	<property name="build.dir" value="bin/classes"/>
-	<property name="lib.dir" value="lib"/>
-	<property name="name" value="helloAnt"/>
-	<property file="build.properties"/>
+	<project name="Hello Ant and JDBC WITH PosrgeSQL" default="build"
+	 xmlns:ivy="antlib:org.apache.ivy.ant">
+		<property name="src.dir" value="src/java"/>
+		<property name="build.dir" value="bin/classes"/>
+		<property name="lib.dir" value="lib"/>
+		<property name="name" value="helloAnt"/>
+		<property file="build.properties"/>
 	
 	<path id="master-classpath">
 		<fileset dir="${lib.dir}">
@@ -27,4 +28,10 @@
          </fileset>
       </delete>
 	</target>
+	<target name="test" description="Test ivy installation">
+      <ivy:settings />
+   </target>
+   <target name="resolve" description="--> retrieve dependencies with Ivy">
+        <ivy:retrieve/>
+    </target>
 </project>

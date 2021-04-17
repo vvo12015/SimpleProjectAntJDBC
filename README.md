@@ -2,6 +2,7 @@
  
 [![java](https://img.shields.io/badge/%20-java-red)](https://docs.oracle.com/en/java/javase/15/) 
 [![ant](https://img.shields.io/badge/%20-ant-violet)](https://ant.apache.org/manual/index.html)
+[![ivy](https://img.shields.io/badge/%20-ant-success)](http://ant.apache.org/ivy/index.html)
 [![posgreSQL](https://img.shields.io/badge/%20-posgresql-blue)](https://www.postgresql.org/docs/current/tutorial-start.html)
 [![jdbc](https://img.shields.io/badge/%20-jdbc-black)](https://docs.oracle.com/javase/tutorial/jdbc/basics/index.html)
 
@@ -40,5 +41,5 @@ This is a small simple project that will help to understand the basic features o
 ## Basic steps
 Оcновні кроки
 - [create build.xml for HelloWorld](https://github.com/vvo12015/SimpleProjectAntJDBC/tree/helloAnt)
-- [build with Properties](https://github.com/vvo12015/SimpleProjectAntJDBC/blob/helloAntWithProperties/README.md)
+- [build with properties](https://github.com/vvo12015/SimpleProjectAntJDBC/blob/helloAntWithProperties/README.md)
 - [build with init project](https://github.com/vvo12015/SimpleProjectAntJDBC/tree/buildingProjects)

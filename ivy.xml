@@ -1,7 +1,13 @@
 <ivy-module version="2.0">
-    <info organisation="org.apache" module="hello-ivy"/>
+    <info organisation="net.vrakin" module="AntJDBC_PostgreSQL"/>
     <dependencies>
 		<!-- https://mvnrepository.com/artifact/postgresql/postgresql -->
 		<dependency org="postgresql" name="postgresql" rev="9.1-901-1.jdbc4"/>
+		<!-- https://mvnrepository.com/artifact/junit/junit -->
+		<dependency org="junit" name="junit" rev="4.13.2"/>
+		<!-- https://mvnrepository.com/artifact/org.hamcrest/hamcrest-core -->
+		<dependency org="org.hamcrest" name="hamcrest-core" rev="2.2"/>
+		<!-- https://mvnrepository.com/artifact/junit/junit -->
+		<dependency org="com.carrotsearch.randomizedtesting" name="junit4-ant" rev="2.0.9"/>
     </dependencies>
 </ivy-module>

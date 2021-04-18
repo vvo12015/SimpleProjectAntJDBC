@@ -1,8 +1,16 @@
 <?xml version="1.0"?>
 	<project name="Hello Ant and JDBC WITH PosrgeSQL" default="build"
-	 xmlns:ivy="antlib:org.apache.ivy.ant">
+	 xmlns:cpptasks="antlib:net.sf.antcontrib.cpptasks"
+     xmlns:ivy="antlib:org.apache.ivy.ant"
+     xmlns:junit4="antlib:com.carrotsearch.junit4"
+     xmlns:mvn="antlib:org.apache.maven.artifact.ant">
 		<property name="src.dir" value="src/java"/>
-		<property name="build.dir" value="bin/classes"/>
+		<property name="testSrc.dir" value="src/test"/>
+		<property name="build.dir" value="bin"/>
+		<property name="classes.dir" value="bin/classes"/>
+		<property name="test.dir" value="bin/test"/>
+		<property name="temp.dir" value="temp"/>
+		<property name="reportTest.dir" value="${test.dir}/report"/>
 		<property name="lib.dir" value="lib"/>
 		<property name="name" value="helloAnt"/>
 		<property file="build.properties"/>
@@ -14,24 +22,69 @@
 		<pathelement path="${build.dir}"/>
 	</path>
 	
-	<target name="build" depends="clean" description="Compile source java files">
-		<mkdir dir="${build.dir}"/>
-		<javac includeantruntime="false" destdir="${build.dir}" source="1.9" target="1.9">
+	<target name="build" depends="resolve" description="Compile source java files">
+		<mkdir dir="${classes.dir}"/>
+		<javac includeantruntime="false" destdir="${classes.dir}" source="1.9" target="1.9">
 			<src path="${src.dir}"/>
 			<classpath refid="master-classpath"/>
 		</javac>
 	</target>
-	<target name="clean" description="Clean output directories">
-		<delete>
-         <fileset dir="${build.dir}">
-            <include name="**/*.class"/>
-         </fileset>
-      </delete>
+	<target name="compileUnitTest" depends="install-junit4, build" description="Compile test java files">
+		<mkdir dir="${test.dir}"/>
+		<javac 
+			includeantruntime="false" destdir="${test.dir}" source="1.9" target="1.9" encoding="UTF-8">
+			<src path="${testSrc.dir}"/>
+			<classpath refid="master-classpath"/>
+		</javac>
 	</target>
-	<target name="test" description="Test ivy installation">
-      <ivy:settings />
-   </target>
-   <target name="resolve" description="--> retrieve dependencies with Ivy">
+	<target name="clean" description="Clean output directories">
+		<delete dir="${build.dir}"/>
+		<delete dir="${temp.dir}"/>
+		<delete dir="${reportTest.dir}"/>
+		<delete dir="${reportTest.dir}"/>
+		<delete dir="${lib.dir}"/>
+	</target>
+	<target name="install-junit4" depends="resolve" unless="junit4.available">
+		<taskdef uri="antlib:com.carrotsearch.junit4">
+		  <classpath>
+			<fileset dir="${lib.dir}" includes="*.jar" />
+		  </classpath>
+		</taskdef>
+		<property name="junit4.available" value="true" />
+	</target>
+	<target name="resolve" depends="clean" description="--> retrieve dependencies with Ivy">
+		<mkdir dir="${lib.dir}"/>
         <ivy:retrieve/>
     </target>
+   <target name="test" description="run tests" depends="compileUnitTest">
+    <junit4:junit4
+      dir="${temp.dir}"
+      maxmemory="100m"
+      parallelism="auto">
+     
+       <classpath>
+        <path location="${classes.dir}" />
+        <path location="${test.dir}" />
+        <fileset dir="${lib.dir}" includes="*.jar" />
+      </classpath>
+      <fileset dir="${test.dir}">
+        <include name="**/*Test.class" />
+      </fileset>
+      <listeners>
+        <junit4:report-text
+        showThrowable="true"
+        showStackTraces="true"
+        showOutput="never"
+
+        showStatusOk="true"
+        showStatusError="true"
+        showStatusFailure="true"
+        showStatusIgnored="true"
+
+        showSuiteSummary="false" />
+        <!-- For enkins -->
+        <junit4:report-ant-xml dir="${reportTest.dir}" />
+      </listeners>
+    </junit4:junit4>
+  </target>
 </project>

@@ -38,13 +38,13 @@ This is a small simple project that will help to understand the basic features o
 - Log in or sing up hosting for PostgreSQL or use local DB
 	- Log in [elephantsql.com](https://customer.elephantsql.com/)
 	- Create New Instance
-## Useful links
+## Useful links(Корисні посилання)
 Ant:
 - [Data type](https://www.tutorialspoint.com/ant/ant_data_types.htm)
 - [Targets](https://ant.apache.org/manual/targets.html#extension-points)
 - [Tasklist](https://ant.apache.org/manual/tasklist.html)
 - [Core Conditions](https://ant.apache.org/manual/Tasks/conditions.html)
-Корисні посилання
+
 ## Basic steps
 
 Оcновні кроки

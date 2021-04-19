@@ -38,13 +38,17 @@ This is a small simple project that will help to understand the basic features o
 - Log in or sing up hosting for PostgreSQL or use local DB
 	- Log in [elephantsql.com](https://customer.elephantsql.com/)
 	- Create New Instance
+## Useful links
+Ant:
+- [Data type](https://www.tutorialspoint.com/ant/ant_data_types.htm)
+- [Targets](https://ant.apache.org/manual/targets.html#extension-points)
+- [Tasklist](https://ant.apache.org/manual/tasklist.html)
+- [Core Conditions](https://ant.apache.org/manual/Tasks/conditions.html)
+Корисні посилання
 ## Basic steps
+
 Оcновні кроки
 - [create build.xml for HelloWorld](https://github.com/vvo12015/SimpleProjectAntJDBC/tree/helloAnt)
 - [build with properties](https://github.com/vvo12015/SimpleProjectAntJDBC/blob/helloAntWithProperties/README.md)
 - [build with init project](https://github.com/vvo12015/SimpleProjectAntJDBC/tree/buildingProjects)
-	- [Data type](https://www.tutorialspoint.com/ant/ant_data_types.htm)
-	- [Targets](https://ant.apache.org/manual/targets.html#extension-points)
-	- [Tasklist](https://ant.apache.org/manual/tasklist.html)
-	- [Core Conditions](https://ant.apache.org/manual/Tasks/conditions.html)
 - [added and use Ivy](https://github.com/vvo12015/SimpleProjectAntJDBC/tree/addingAndWorkIvy)

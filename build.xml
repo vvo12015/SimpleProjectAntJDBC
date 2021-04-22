@@ -12,6 +12,7 @@
 		<property name="temp.dir" value="temp"/>
 		<property name="reportTest.dir" value="${test.dir}/report"/>
 		<property name="lib.dir" value="lib"/>
+		<property name="db.dir" value="db"/>
 		<property name="name" value="helloAnt"/>
 		<property file="build.properties"/>
 	
@@ -20,8 +21,20 @@
 			<include name="*.jar"/>
 		</fileset>
 		<pathelement path="${build.dir}"/>
+		<pathelement path="${classes.dir}"/>
 	</path>
 	
+	<target name="clean" description="Clean output directories">
+		<delete dir="${build.dir}"/>
+		<delete dir="${temp.dir}"/>
+		<delete dir="${reportTest.dir}"/>
+		<delete dir="${reportTest.dir}"/>
+		<delete dir="${lib.dir}"/>
+	</target>	
+	<target name="resolve" depends="clean" description="--> retrieve dependencies with Ivy">
+		<mkdir dir="${lib.dir}"/>
+        <ivy:retrieve/>
+    </target>	
 	<target name="build" depends="resolve" description="Compile source java files">
 		<mkdir dir="${classes.dir}"/>
 		<javac includeantruntime="false" destdir="${classes.dir}" source="1.9" target="1.9">
@@ -29,6 +42,7 @@
 			<classpath refid="master-classpath"/>
 		</javac>
 	</target>
+	
 	<target name="compileUnitTest" depends="install-junit4, build" description="Compile test java files">
 		<mkdir dir="${test.dir}"/>
 		<javac 
@@ -36,13 +50,6 @@
 			<src path="${testSrc.dir}"/>
 			<classpath refid="master-classpath"/>
 		</javac>
-	</target>
-	<target name="clean" description="Clean output directories">
-		<delete dir="${build.dir}"/>
-		<delete dir="${temp.dir}"/>
-		<delete dir="${reportTest.dir}"/>
-		<delete dir="${reportTest.dir}"/>
-		<delete dir="${lib.dir}"/>
 	</target>
 	<target name="install-junit4" depends="resolve" unless="junit4.available">
 		<taskdef uri="antlib:com.carrotsearch.junit4">
@@ -52,39 +59,80 @@
 		</taskdef>
 		<property name="junit4.available" value="true" />
 	</target>
-	<target name="resolve" depends="clean" description="--> retrieve dependencies with Ivy">
-		<mkdir dir="${lib.dir}"/>
-        <ivy:retrieve/>
-    </target>
-   <target name="test" description="run tests" depends="compileUnitTest">
-    <junit4:junit4
-      dir="${temp.dir}"
-      maxmemory="100m"
-      parallelism="auto">
-     
-       <classpath>
-        <path location="${classes.dir}" />
-        <path location="${test.dir}" />
-        <fileset dir="${lib.dir}" includes="*.jar" />
-      </classpath>
-      <fileset dir="${test.dir}">
-        <include name="**/*Test.class" />
-      </fileset>
-      <listeners>
-        <junit4:report-text
-        showThrowable="true"
-        showStackTraces="true"
-        showOutput="never"
+	<target name="test" description="run tests" depends="compileUnitTest">
+		<junit4:junit4
+		  dir="${temp.dir}"
+		  maxmemory="100m"
+		  parallelism="auto">
+		 
+		   <classpath>
+			<path location="${classes.dir}" />
+			<path location="${test.dir}" />
+			<fileset dir="${lib.dir}" includes="*.jar" />
+		  </classpath>
+		  <fileset dir="${test.dir}">
+			<include name="**/*Test.class" />
+		  </fileset>
+		  <listeners>
+			<junit4:report-text
+			showThrowable="true"
+			showStackTraces="true"
+			showOutput="never"
 
-        showStatusOk="true"
-        showStatusError="true"
-        showStatusFailure="true"
-        showStatusIgnored="true"
+			showStatusOk="true"
+			showStatusError="true"
+			showStatusFailure="true"
+			showStatusIgnored="true"
 
-        showSuiteSummary="false" />
-        <!-- For enkins -->
-        <junit4:report-ant-xml dir="${reportTest.dir}" />
-      </listeners>
-    </junit4:junit4>
-  </target>
+			showSuiteSummary="false" />
+			<!-- For enkins -->
+			<junit4:report-ant-xml dir="${reportTest.dir}" />
+		  </listeners>
+		</junit4:junit4>
+	</target>
+	<target name="run" description="run project" depends="build">
+      <java fork="true" failonerror="yes" classname="org.hello.Main">
+		 <classpath refid="master-classpath"/>
+         <arg line="-u username -p 111"/>
+      </java>
+	</target>
+	
+	<target name="create-db" description="create database">
+		<echo> db.local.driver - ${db.local.driver}</echo>
+		<echo> db.local.url_createDB - ${db.local.url_createDB}</echo>
+		<echo> db.local.user - ${db.local.user}</echo>
+		<echo> db.local.password - ${db.local.password}</echo>
+		<echo> db.local.dbname - ${db.local.dbname}</echo>
+		<sql driver="${db.local.driver}" url="${db.local.url_createDB}" userid="${db.local.user}"
+         password="${db.local.password}" classpathref="master-classpath" delimiter=";"
+         autocommit="true" onerror="abort">create database ${db.local.dbname};
+		 </sql>
+	</target>
+	<target name="drop-tables" description="drop all table">
+		 <sql driver="${db.local.driver}" url="${db.local.url}" userid="${db.local.user}"
+		 password="${db.local.password}" classpathref="master-classpath" delimiter=";"
+		 autocommit="false" onerror="abort">
+		 <transaction src="${db.dir}/drop_tables.sql"></transaction>
+		 </sql>
+	</target>
+	
+	<target name="create-tables" description="create all tables">
+		<sql driver="${db.local.driver}" url="${db.local.url}" userid="${db.local.user}"
+         password="${db.local.password}" classpathref="master-classpath" delimiter=";"
+         autocommit="false" onerror="abort">
+		 <transaction src="${db.dir}/create_tables.sql"></transaction>
+		 </sql>
+	</target>
+	<target name="populate-tables" description="populate tables">
+		<sql driver="${db.local.driver}" url="${db.local.url}" userid="${db.local.user}"
+         password="${db.local.password}" classpathref="master-classpath" delimiter=";"
+         autocommit="false" onerror="abort">
+		 <transaction src="${db.dir}/populate_tables.sql"></transaction>
+		 </sql>
+	</target>
+	<target name="init_sql" description="drop, create and populate tables">
+		<antcall target="drop-tables"/>
+		<antcall target="create-tables"/>
+		<antcall target="populate-tables"/>
+	</target>
 </project>
